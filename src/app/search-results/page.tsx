@@ -8,7 +8,7 @@ import Error from "next/error";
 import { Home } from "react-feather";
 import Link from "next/link";
 
-export function SearchResults({
+function SearchResults({
   searchStr,
 }: {
   searchStr: string;
@@ -59,7 +59,7 @@ const GoHomeButton = () => {
   );
 }
 
-export default function page() {
+export default function SearchResultsPage() {
   const searchParams = useSearchParams();
   const searchStr = searchParams.get("text")?.toString();
 

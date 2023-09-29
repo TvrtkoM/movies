@@ -1,5 +1,4 @@
 'use client'
-import { SearchResults } from '@/app/search-results/page';
 import { useRouter } from 'next/navigation';
 import React from 'react'
 
