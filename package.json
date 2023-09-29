@@ -9,17 +9,24 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@n8tb1t/use-scroll-position": "^2.0.3",
+    "@tanstack/react-query": "^4.35.3",
+    "next": "latest",
+    "plaiceholder": "^3.0.0",
     "react": "latest",
     "react-dom": "latest",
-    "next": "latest"
+    "react-slick": "^0.29.0",
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
-    "typescript": "latest",
-    "@types/react": "latest",
     "@types/node": "latest",
+    "@types/react": "latest",
     "@types/react-dom": "latest",
+    "@types/react-slick": "^0.23.10",
     "autoprefixer": "latest",
     "postcss": "latest",
-    "tailwindcss": "latest"
+    "react-feather": "^2.0.10",
+    "tailwindcss": "latest",
+    "typescript": "latest"
   }
 }
