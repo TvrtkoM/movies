@@ -22,4 +22,3 @@ pnpm dev
 bun dev
 ```
 
-See it in action at https://filmovi-tvrtkom.vercel.app/
