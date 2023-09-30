@@ -2,7 +2,6 @@ import MovieCast from '@/components/MovieCast';
 import MovieVideo from '@/components/MovieVideo';
 import SimilarMovies from '@/components/SimilarMovies';
 import { fetchMovieCast, fetchMovieDetails } from '@/fetch-movies'
-import Error from 'next/error';
 import Image from 'next/image'
 import Link from 'next/link';
 import React from 'react'
@@ -22,7 +21,9 @@ export default async function Page({
     <div className="container mx-auto">
       <h1 className="text-2xl mb-3 p-3 border border-orange-600 flex justify-between">
         <div>{movie.title}</div>
-        <Link href="/"><Home className="cursor-pointer" size={36} /></Link>
+        <Link href="/">
+          <Home className="cursor-pointer" size={36} />
+        </Link>
       </h1>
       <section className="flex flex-col space-y-2">
         <div className="flex">
