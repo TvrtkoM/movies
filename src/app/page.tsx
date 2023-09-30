@@ -12,9 +12,9 @@ export default async function Home() {
   return (
     <div className='container mx-auto'>
       <MovieSearch></MovieSearch>
-      <h1 className='text-3xl my-3'>Top rated movies</h1>
+      <h1 className='text-3xl my-3 p-3 border border-orange-700'>Top rated movies</h1>
       <TopRatedMovies movies={topRated}></TopRatedMovies>
-      <h1 className='text-2xl mt-6'>Upcoming movies</h1>
+      <h1 className='text-2xl mt-6 p-3 border border-orange-700'>Upcoming movies</h1>
       <UpcomingMovies movies={upcoming}></UpcomingMovies>
     </div>
   );

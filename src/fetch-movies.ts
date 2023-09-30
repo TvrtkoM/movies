@@ -138,9 +138,21 @@ export const fetchTrailers = async (id: number): Promise<MovieTrailer[]> => {
   );
   const response = await fetch(request);
   const data = await response.json();
-  return data.results.map((result: any) => ({
+  return data.results?.map((result: any) => ({
     name: result.name,
     link: `https://www.youtube.com/watch?v=${result.key}`,
     key: result.key
-  }))
+  })) ?? []
+}
+
+export const fetchSimilarMovies = async (id: number): Promise<MovieSummary[]> => {
+  const request = new Request(
+    `${apiUrl}/movie/${id}/similar?${new URLSearchParams({
+      ...defaultSearchParams
+    })}`,
+    options
+  );
+  const response = await fetch(request);
+  const data = await response.json();
+  return data.results;
 }

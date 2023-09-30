@@ -26,23 +26,25 @@ const MovieSummaryView = ({ movie }: { movie: MovieSummary }) => {
       </MovieLink>
       <div className="flex">
         <div className="h-56 w-36 relative flex-shrink-0 items-center hidden md:flex">
-          {movie.poster_path ? (
-            <Image
-              src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
-              alt={movie.title}
-              blurDataURL="/film-placeholder.webp"
-              fill
-              style={{ objectFit: "cover" }}
-              placeholder="blur"
-            />
-          ) : (
-            <Image
-              src="/film-placeholder.webp"
-              alt={movie.title}
-              fill
-              style={{ objectFit: "cover" }}
-            />
-          )}
+          <MovieLink movieId={movie.id}>
+            {movie.poster_path ? (
+              <Image
+                src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
+                alt={movie.title}
+                blurDataURL="/film-placeholder.webp"
+                fill
+                style={{ objectFit: "cover" }}
+                placeholder="blur"
+              />
+            ) : (
+              <Image
+                src="/film-placeholder.webp"
+                alt={movie.title}
+                fill
+                style={{ objectFit: "cover" }}
+              />
+            )}
+          </MovieLink>
         </div>
         <div className="flex flex-col justify-center mb-8 ml-3">
           <div className="mb-5">{movie.overview}</div>

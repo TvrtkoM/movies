@@ -1,8 +1,12 @@
 import MovieCast from '@/components/MovieCast';
 import MovieVideo from '@/components/MovieVideo';
+import SimilarMovies from '@/components/SimilarMovies';
 import { fetchMovieCast, fetchMovieDetails } from '@/fetch-movies'
+import Error from 'next/error';
 import Image from 'next/image'
+import Link from 'next/link';
 import React from 'react'
+import { Home } from 'react-feather';
 
 export default async function Page({
   params
@@ -11,9 +15,15 @@ export default async function Page({
 }) {
   const movie = await fetchMovieDetails(+params.movieId);
   const movieCast = await fetchMovieCast(+params.movieId);
+
+  if (!movie?.title) return <div>No movie found for id {params.movieId}</div>;
+  
   return (
     <div className="container mx-auto">
-      <h1 className="text-2xl mb-3">{movie.title}</h1>
+      <h1 className="text-2xl mb-3 p-3 border border-orange-600 flex justify-between">
+        <div>{movie.title}</div>
+        <Link href="/"><Home className="cursor-pointer" size={36} /></Link>
+      </h1>
       <section className="flex flex-col space-y-2">
         <div className="flex">
           {movie.poster_path && (
@@ -21,10 +31,10 @@ export default async function Page({
               <Image
                 src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
                 alt={movie.title}
-                blurDataURL='/film-placeholder.webp'
+                blurDataURL="/film-placeholder.webp"
                 fill
                 style={{ objectFit: "cover" }}
-                placeholder='blur'
+                placeholder="blur"
               />
             </div>
           )}
@@ -81,6 +91,7 @@ export default async function Page({
       <MovieVideo movieId={movie.id}></MovieVideo>
       <h2 className="text-xl my-3">Cast</h2>
       <MovieCast cast={movieCast}></MovieCast>
+      <SimilarMovies movieId={movie.id}></SimilarMovies>
     </div>
   );
 }
