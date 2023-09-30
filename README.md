@@ -4,7 +4,7 @@ Intall dependencies:
 
 ```npm i```
 
-Add `.env.local` variable with your TMDB read access token e.g.
+Add `.env.local` file with your TMDB read access token inside e.g.
 
 ```
 NEXT_PUBLIC_API_READ_ACCESS_TOKEN="....[TOKEN HERE]...."
